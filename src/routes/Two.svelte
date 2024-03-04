@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	let quotes: string[] = [
 		'"Has two personalities, jukmifuguh and angry developer" - Error_404',
 		'"like quietbook, but louder" - Phalipsio',
@@ -26,44 +28,70 @@
 		}
 	}
 
+	let intersectingClass = "non-intersecting";
+
+	onMount(() => {
+		const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					intersectingClass = "intersecting";
+				} else {
+					intersectingClass = "non-intersecting";
+				}
+			})
+		})
+
+		observer.observe(document.querySelector('two')!)
+	})
+
 </script>
 
-<two>
-	<scroll>
-		{#each [0, 1] as _}
-			<images>
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="Kotlin" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gradle/gradle-original.svg" alt="Gradle" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="CSharp" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
-						 alt="CPlusPlus" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wasm/wasm-original.svg" alt="WASM" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" alt="SASS" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
-						 alt="MongoDB" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" alt="Redis" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg"
-						 alt="JetBrains" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
-						 alt="Photoshop" />
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fedora/fedora-original.svg"
-						 alt="Fedora Linux" />
-			</images>
-		{/each}
-	</scroll>
-	<testamonies class={hidden}>
-		<h1> {quotes[quotesIndex]} </h1>
-	</testamonies>
-</two>
+<twocontainer>
+	<two class={intersectingClass}>
+		<scroll>
+			{#each [0, 1] as _}
+				<images>
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="Kotlin" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gradle/gradle-original.svg" alt="Gradle" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="CSharp" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+							 alt="CPlusPlus" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wasm/wasm-original.svg" alt="WASM" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" alt="SASS" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
+							 alt="MongoDB" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" alt="Redis" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg"
+							 alt="JetBrains" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
+							 alt="Photoshop" />
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fedora/fedora-original.svg"
+							 alt="Fedora Linux" />
+				</images>
+			{/each}
+		</scroll>
+		<testamonies class={hidden}>
+			<h1> {quotes[quotesIndex]} </h1>
+		</testamonies>
+	</two>
+</twocontainer>
 
 <style lang="scss">
+	twocontainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+
   two {
+    box-shadow: -9px 25px 36px 0px rgba(0,0,0,0.40);
     scroll-snap-align: start;
 
     display: flex;
@@ -72,18 +100,24 @@
     flex-wrap: nowrap;
     flex-direction: column;
 
-    height: 100vh;
-    width: 100vw;
+		border-radius: 50px;
+
+    height: 80vh;
+    width: 80vw;
 
     background-color: white;
 
-    view-timeline-name: --upTwo;
-    view-timeline-axis: block;
+		transition: all 0.3s ease-in-out;
 
-    animation: up ease-in-out both;
-    animation-timeline: --upTwo;
-    animation-duration: 1ms;
-    animation-range: cover 0% cover 40%;
+		&.intersecting {
+      opacity: 1;
+			transform: translateY(0);
+    }
+
+		&.non-intersecting {
+			opacity: 0;
+			transform: translateY(10%);
+    }
 
     overflow-x: hidden;
 
@@ -91,7 +125,7 @@
       from {
         transform: translateY(50%);
       }
-      to {
+      1% {
         transform: translateY(0);
       }
     }
@@ -146,7 +180,8 @@
         font-family: "Gabarito", sans-serif;
         font-weight: 400;
         text-align: center;
-      }
+				font-size: 2vw;
+			}
     }
 
     @keyframes scrollText1 {

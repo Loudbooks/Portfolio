@@ -11,7 +11,21 @@ html, body {
 
 /*noinspection CssReplaceWithShorthandSafely*/
 body {
-	background: linear-gradient(230deg, rgba(240,89,71,1) 0%, rgba(244,81,128,1) 33%, rgba(240,89,71,1) 66%, rgba(244,81,128,1) 100%);
+	background: linear-gradient(230deg, rgba(240, 89, 71, 1) 0%, rgba(244, 81, 128, 1) 33%, rgba(240, 89, 71, 1) 66%, rgba(244, 81, 128, 1) 100%);
 	background-size: 400% 400%;
 	background-attachment: fixed;
+
+	animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
 }
