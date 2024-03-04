@@ -24,7 +24,7 @@
 	}
 
 	function transformStyle() {
-		return `transform: translate(${randomMovement() / 30}px, ${30 - randomMovement()}px) rotate(${15 / 2 - randomRotation()}deg);`;
+		return `transform: translate(${randomMovement() / 100}vh, ${(30 - randomMovement()) / 25}vh) rotate(${15 / 2 - randomRotation()}deg);`;
 	}
 </script>
 
@@ -69,23 +69,21 @@
       padding-right: 0.3vw;
       padding-bottom: 0;
 
-      @supports (view-timeline-name: --spread-text) {
-        view-timeline-name: --spread-text;
-        view-timeline-axis: block;
+			view-timeline-name: --spread-text;
+			view-timeline-axis: block;
 
-        animation: ease-in-out spread both;
-        animation-timeline: --spread-text;
-        animation-duration: 1ms;
-        animation-range: contain 50% exit 100%;
-      }
+			animation: ease-in-out spread both;
+			animation-timeline: --spread-text;
+			animation-duration: 1ms;
+			animation-range: contain 50% exit 100%;
 
       @keyframes spread {
-        0% {
+        from {
           padding-left: 0.3vw;
           padding-right: 0.3vw;
           text-shadow: -50px 60px 200px rgba(0, 0, 0, 0.75);
         }
-        100% {
+        to {
           padding-left: 10vw;
           padding-right: 10vw;
           text-shadow: -60px 70px 300px rgba(0, 0, 0, 1);
@@ -116,7 +114,7 @@
     align-content: center;
     justify-content: center;
 
-    @supports (view-timeline-name: --up) {
+		@supports (view-timeline-name: --up) {
       view-timeline-name: --up;
       view-timeline-axis: block;
       animation: ease-in-out up45 both;
