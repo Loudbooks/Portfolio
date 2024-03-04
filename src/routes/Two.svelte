@@ -140,12 +140,12 @@
       }
 
       opacity: 1;
-			text-align: center;
       transition: opacity 0.5s ease-in-out;
 
       h1 {
         font-family: "Gabarito", sans-serif;
         font-weight: 400;
+        text-align: center;
       }
     }
 
