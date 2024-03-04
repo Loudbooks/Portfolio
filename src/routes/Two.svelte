@@ -140,7 +140,7 @@
       }
 
       opacity: 1;
-
+			text-align: center;
       transition: opacity 0.5s ease-in-out;
 
       h1 {
