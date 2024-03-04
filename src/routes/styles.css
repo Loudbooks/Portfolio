@@ -1,0 +1,17 @@
+html, body {
+	padding: 0;
+	border: 0;
+	height: 100%;
+	margin: 0;
+
+	scroll-snap-type: y mandatory;
+
+	overflow-x: hidden;
+}
+
+/*noinspection CssReplaceWithShorthandSafely*/
+body {
+	background: linear-gradient(230deg, rgba(240,89,71,1) 0%, rgba(244,81,128,1) 33%, rgba(240,89,71,1) 66%, rgba(244,81,128,1) 100%);
+	background-size: 400% 400%;
+	background-attachment: fixed;
+}
