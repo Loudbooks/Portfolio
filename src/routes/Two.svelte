@@ -68,7 +68,6 @@
 					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" alt="Redis" />
 					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg"
 							 alt="JetBrains" />
-
 				</images>
 			{/each}
 		</scroll>
@@ -145,13 +144,6 @@
             width: 10vw;
             margin: 10px;
             padding: 10px;
-
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.85);
           }
         }
 
