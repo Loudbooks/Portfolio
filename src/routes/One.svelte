@@ -54,7 +54,7 @@
     justify-content: center;
     align-items: center;
 
-    font-size: 20vw;
+    font-size: 19vw;
 
     span {
       display: inline-block;
@@ -67,32 +67,8 @@
 
       padding-left: 0.3vw;
       padding-right: 0.3vw;
-      padding-bottom: 0;
-
-			view-timeline-name: --spread-text;
-			view-timeline-axis: block;
-
-			animation: ease-in-out spread both;
-			animation-timeline: --spread-text;
-			animation-duration: 1ms;
-			animation-range: contain 50% exit 100%;
-
-      @keyframes spread {
-        from {
-          padding-left: 0.3vw;
-          padding-right: 0.3vw;
-          text-shadow: -50px 60px 200px rgba(0, 0, 0, 0.75);
-        }
-        to {
-          padding-left: 10vw;
-          padding-right: 10vw;
-          text-shadow: -60px 70px 300px rgba(0, 0, 0, 1);
-
-          padding-bottom: 50%;
-        }
-      }
     }
-
+    
     @keyframes gradient {
       0% {
         background-position: 0 50%;
@@ -114,7 +90,6 @@
     align-content: center;
     justify-content: center;
 
-		@supports (view-timeline-name: --up) {
       view-timeline-name: --up;
       view-timeline-axis: block;
       animation: ease-in-out up45 both;
@@ -122,7 +97,6 @@
       animation-timeline: --up;
       animation-duration: 1ms;
       animation-range: cover 0% cover 40%;
-    }
 
     arrow {
       overflow: visible;

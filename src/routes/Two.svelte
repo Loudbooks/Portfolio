@@ -68,11 +68,7 @@
 					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" alt="Redis" />
 					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg"
 							 alt="JetBrains" />
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" />
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
-							 alt="Photoshop" />
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fedora/fedora-original.svg"
-							 alt="Fedora Linux" />
+
 				</images>
 			{/each}
 		</scroll>
@@ -84,136 +80,145 @@
 
 <style lang="scss">
 	twocontainer {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-	}
-
-  two {
-    box-shadow: -9px 25px 36px 0px rgba(0,0,0,0.40);
-    scroll-snap-align: start;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
-    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
 
-		border-radius: 50px;
+    two {
+      box-shadow: inset 7px 6px 42px 0px rgba(0,0,0,0.66);
 
-    height: 80vh;
-    width: 80vw;
+      height: 60vh;
 
-    background-color: white;
-
-		transition: all 0.3s ease-in-out;
-
-		&.intersecting {
-      opacity: 1;
-			transform: translateY(0);
-    }
-
-		&.non-intersecting {
-			opacity: 0;
-			transform: translateY(10%);
-    }
-
-    overflow-x: hidden;
-
-    @keyframes up {
-      from {
-        transform: translateY(50%);
-      }
-      1% {
-        transform: translateY(0);
-      }
-    }
-
-    scroll {
-      position: relative;
       display: flex;
-      width: 90vw;
-      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-direction: column;
 
-      mask-image: linear-gradient(90deg, transparent 5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, transparent 95%);
+      border-radius: 50px;
 
-      images {
-        white-space: nowrap;
-        animation: scrollText1 20s linear infinite;
-        animation-delay: -20s;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
 
-        img {
-          height: 10vw;
-          width: 10vw;
+      transition: all 0.7s ease-in-out;
 
-          padding-left: 10px;
-        }
-      }
-
-      images:nth-child(2) {
-        animation: scrollText2 20s linear infinite;
-        animation-delay: -10s;
-
-        img {
-          height: 10vw;
-          width: 10vw;
-
-          padding-left: 10px;
-        }
-      }
-    }
-
-    testamonies {
-      &.true {
-        opacity: 0;
-      }
-
-      &.false {
+      &.intersecting {
         opacity: 1;
+				transform: translateY(0);
       }
 
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
+      &.non-intersecting {
+        opacity: 0;
+        transform: translateY(20%);
+      }
 
-      h1 {
-        font-family: "Gabarito", sans-serif;
-        font-weight: 400;
-        text-align: center;
-				font-size: 2vw;
-			}
-    }
+      overflow-x: hidden;
 
-    @keyframes scrollText1 {
-      from {
-        transform: translateX(100%);
+      @keyframes up {
+        from {
+          transform: translateY(50%);
+        }
+        1% {
+          transform: translateY(0);
+        }
       }
-      to {
-        transform: translateX(-100%);
-      }
-    }
 
-    @keyframes scrollText2 {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-200%);
-      }
-    }
+      scroll {
+        position: relative;
+        display: flex;
+        width: 90vw;
+        overflow: hidden;
 
-    @keyframes scrollSpeed {
-      from {
-        animation-duration: 0s;
-      }
-      to {
-        animation-duration: 40s;
-      }
-    }
+        images {
+          white-space: nowrap;
+          animation: scrollText1 20s linear infinite;
+          animation-delay: -20s;
 
-    @keyframes move {
-      to {
-        transform: translateX(calc(-100% + 100vw));
+          img {
+            height: 10vw;
+            width: 10vw;
+            margin: 10px;
+            padding: 10px;
+
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+          }
+        }
+
+        images:nth-child(2) {
+          animation: scrollText2 20s linear infinite;
+          animation-delay: -10s;
+
+          img {
+            height: 10vw;
+            width: 10vw;
+            margin: 10px;
+          }
+        }
+      }
+
+      testamonies {
+        &.true {
+          opacity: 0;
+        }
+
+        &.false {
+          opacity: 1;
+        }
+
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+
+        h1 {
+          font-family: "Gabarito", sans-serif;
+          font-weight: 400;
+          text-align: center;
+          font-size: 2.5vw;
+          color: white;
+        }
+      }
+
+      @keyframes scrollText1 {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      @keyframes scrollText2 {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-200%);
+        }
+      }
+
+      @keyframes scrollSpeed {
+        from {
+          animation-duration: 0s;
+        }
+        to {
+          animation-duration: 40s;
+        }
+      }
+
+      @keyframes move {
+        to {
+          transform: translateX(calc(-100% + 100vw));
+        }
       }
     }
   }
